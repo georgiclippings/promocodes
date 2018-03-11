@@ -23,7 +23,8 @@
         "symfony/validator": "^4.0",
         "symfony/web-link": "^4.0",
         "symfony/webpack-encore-pack": "*",
-        "symfony/yaml": "^4.0"
+        "symfony/yaml": "^4.0",
+        "hgtan/symfony-pre-commit": "dev-master"
     },
     "require-dev": {
         "symfony/browser-kit": "^4.0",
@@ -66,7 +67,9 @@
         ],
         "post-update-cmd": [
             "@auto-scripts"
-        ]
+        ],
+        "pre-update-cmd": "Hgtan\\Composer\\Script\\Hooks::checkHooks",
+        "pre-install-cmd": "Hgtan\\Composer\\Script\\Hooks::checkHooks"
     },
     "conflict": {
         "symfony/symfony": "*"
