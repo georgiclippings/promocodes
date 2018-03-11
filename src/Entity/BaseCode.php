@@ -2,12 +2,13 @@
 
 namespace App\Entity;
 
-use Gedmo\Mapping\Annotation as Gedmo;
 use DateTime;
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
+use Gedmo\Translatable\Translatable;
 
 /** @ORM\MappedSuperclass */
-class BaseCode
+class BaseCode implements Translatable
 {
     /**
      * @ORM\Id
@@ -18,6 +19,7 @@ class BaseCode
 
     /**
      * @var string
+     * @Gedmo\Translatable
      * @ORM\Column(name="title", type="string", length=255)
      */
     private $title;
@@ -30,12 +32,14 @@ class BaseCode
 
     /**
      * @var string
+     * @Gedmo\Translatable
      * @ORM\Column(name="short_description", type="text")
      */
     private $shortDescription;
 
     /**
      * @var string
+     * @Gedmo\Translatable
      * @ORM\Column(name="description", type="text")
      */
     private $desctiption;
@@ -48,6 +52,7 @@ class BaseCode
 
     /**
      * @var string
+     * @Gedmo\Translatable
      * @ORM\Column(name="button_title", type="string", length=20)
      */
     private $buttonTitle;
